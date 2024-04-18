@@ -438,8 +438,6 @@ class MovieChat(Blip2Base):
 
         return q_hidden_state
 
-
-
     def encode_videoQformer_visual(self, image):
         device = image.device
         # input shape b,c,t,h,w
@@ -509,8 +507,7 @@ class MovieChat(Blip2Base):
             
             atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image_embeds.device)
         return inputs_llama, atts_llama
-    
-    
+        
     def prompt_wrap(self, img_embeds, atts_img, prompt):
         if prompt:
             batch_size = img_embeds.shape[0]
